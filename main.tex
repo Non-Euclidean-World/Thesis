@@ -159,6 +159,30 @@
 
 % -------------------------- USER SETTINGS ---------------------------
 
+\usepackage{float}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color[rgb]{0.95, 0.95, 0.95},
+    stringstyle=\color[rgb]{0.25,0.5,0.35},
+    keywordstyle=\color[rgb]{0.5,0.0,0.35},
+    commentstyle=\color[rgb]{0.5,0.5,0.5},
+    string=[s]{"}{"},
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    tabsize=2,
+    keywords={},
+}
+
 \newcommand{\tytul}{Proceduralne generowanie świata i wyzwania związane z renderowaniem w przestrzeniach nieeuklidesowych}
 \renewcommand{\title}{Procedural world generation and the challenges of rendering in non-Euclidean spaces}
 \newcommand{\type}{Engineer} % Master OR Engineer
@@ -236,7 +260,7 @@
 
 
 \input{chapters/introduction.tex}
-
+\input{chapters/two_dimensional_graphics/two_dimensional_graphics.tex}
 
 
 % ------------------------------- BIBLIOGRAPHY ---------------------------
