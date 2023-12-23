@@ -1,0 +1,67 @@
+\subsection{Practical considerations} % based on scripts/distortions_calc.py
+There are two ways we could implement placing objects in the scene:
+\begin{enumerate}
+    \item Port the object to non-Euclidean geometry and then use the translation given by \autoref{eq:translation},
+    \item Translate the object using ordinary Euclidean translation and then port it to non-Euclidean geometry.
+\end{enumerate}
+The first option is undesirable, as it may significantly change the relative positions of objects in the scene.
+To see why, let's consider two copies of a 2-dimensional rectangle that we will first port to the spherical geometry, and then translate using the non-Euclidean translation.
+The rectangle with vertices $a = (-0.5, -0.7), b = (0.5, -0.7), c = (0.5, 0.5), d = (-0.5, 0.5)$ is ported to spherical geometry using \autoref{eq:elliptic-porting}.
+As a result, we obtain points on a unit sphere:
+\begin{equation*}
+    \begin{split}
+         & \mathcal{P}(a) = (-0.44057521, -0.61680529,  0.65226123) \\
+         & \mathcal{P}(b) =( 0.44057521, -0.61680529,  0.65226123)  \\
+         & \mathcal{P}(c) =(0.45936268, 0.45936268, 0.7602446 )     \\
+         & \mathcal{P}(d) =(-0.45936268,  0.45936268,  0.7602446 )
+    \end{split}
+\end{equation*}
+If we were to translate the first copy of the rectangle to point $t_1 = (0.3, 0.3)$ and the second copy to $t _2 = (1.3, 1.5)$ in Euclidean geometry, the two copies should meet at the point $(0.8, 0.8)$, see Figure \textcolor{red}{TODO}.
+When we perform the translation to point $t_1$ (the corresponding translation target is obtained by porting $t_1$ using \autoref{eq:elliptic-porting}, i.e. the translation target is $q_1 = \mathcal{P}(t_1)$), we get the following vertices:
+\begin{equation*}
+    \begin{split}
+         & T_{q_1}\mathcal{P}(a) =  (-0.22626297, -0.40249305,  0.75499125) \\
+         & T_{q_1}\mathcal{P}(b) = ( 0.60970206, -0.44767844,  0.45828748)  \\
+         & T_{q_1}\mathcal{P}(c) =(0.61743759, 0.61743759, 0.27773299)      \\
+         & T_{q_1}\mathcal{P}(d) =(-0.25706568,  0.66165969,  0.56811146)
+    \end{split}
+\end{equation*}
+The translation to $t_2$ (with $q_2 = \mathcal{P}(t_2)$) gives
+\begin{equation*}
+    \begin{split}
+         & T_{q_2}\mathcal{P}(a) =(0.45082,    0.41172764, 0.23620236)    \\
+         & T_{q_2}\mathcal{P}(b) =(1.14026231, 0.19052597, 0.04512474)    \\
+         & T_{q_2}\mathcal{P}(c) =( 1.01419188,  1.09955021, -0.20724012) \\
+         & T_{q_2}\mathcal{P}(d) =( 0.28308767,  1.31603618, -0.02023601)
+    \end{split}
+\end{equation*}
+Even though we would expect the third vertex of the first copy of the rectangle to be identical to the first vertex of the second copy, there is in fact a difference between the two.
+This effect can be seen in Figure \textcolor{red}{TODO}.
+
+The second option isn't unfortunately free of distortions as well.
+For example, consider two identical squares of side length $0.5$.
+The first one with the bottom-left corner at the point $(0,0)$ and the second one with the corresponding corner at $(0.5, 0.5)$.
+After porting to spherical geometry using the \autoref{eq:elliptic-porting}, we get squares with side lengths (listed counter-clockwise starting at the bottom edge):
+\begin{equation*}
+    \begin{split}
+         & 0.5 ,                \\
+         & 0.4791055553975933 , \\
+         & 0.4791055553975933 , \\
+         & 0.5
+    \end{split}
+\end{equation*}
+for the first square and with side lengths
+\begin{equation*}
+    \begin{split}
+         & 0.4804812320876888, \\
+         & 0.425392223784045,  \\
+         & 0.425392223784045,  \\
+         & 0.4804812320876888
+    \end{split}
+\end{equation*}
+for the second square.
+The side lengths of the square have been calculated as the lengths of geodesics\footnote{This is the "great-circle distance" equal to $2 \arcsin{(c / 2)}$, where $c$ is the chord length.} between the square's vertices.
+As we can see, the side lengths of the ported square are no longer equal to each other, and the distortion increases as the square is farther away from the origin.
+This effect can be seen in Figure \textcolor{red}{TODO}.
+
+To minimize the distortions we employed the following method. \textcolor{red}{TODO}.

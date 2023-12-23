@@ -24,8 +24,10 @@ Now we can define that the translation is the composition of two reflections: on
 Applying the first reflection to an arbitrary point $p$ gives a point
 $$p' = 2 \frac{\langle p, g \rangle}{\langle g, g \rangle}g - p = 2p_w g - p,$$
 and the second reflection applied to $p'$ yields a point
-$$p'' = 2 \frac{\langle p', g + q \rangle}{\langle g + q, g + q \rangle}(g + q) - p'
-    = 2 p_w q + p - \frac{p_w + \mathcal{L}\langle p, q \rangle}{1 + q_w}(g + q).$$
+\begin{equation} \label{eq:translation}
+    p'' = 2 \frac{\langle p', g + q \rangle}{\langle g + q, g + q \rangle}(g + q) - p'
+    = 2 p_w q + p - \frac{p_w + \mathcal{L}\langle p, q \rangle}{1 + q_w}(g + q).
+\end{equation}
 The effect of applying translation to an arbitrary point $a$ is shown in \autoref{fig:translation}.\\
 \begin{figure}[h]
     \centering
@@ -88,7 +90,7 @@ As the result of the transformation, the eye position is mapped to the geometry 
 Furthermore, the vectors $i'$, $j'$, and $k'$ are mapped to $i$, $j$, and $k$, respectively.
 
 \subsubsection{Perspective transformation}
-According to \cite{Szirmay-Kalos2022}, the perspective transformation is given by the matrix
+According to \cite{Szirmay-Kalos2022}, the perspective transformation is given by the matrix \textcolor{red}{[but we don't do it this way, in fact, I don't know how our projection matrix works.]}
 \begin{equation*}
     \begin{bmatrix}
         1 / s_x & 0       & 0      & 0  \\
@@ -120,9 +122,9 @@ The positions of objects in the scene are specified in a 3-dimensional Euclidean
 They are then "transported" or \textit{ported} to a non-Euclidean space of choice.
 One possible mapping that could be used for this purpose is called the exponential map.
 For a given point $p$ in the 3-dimensional Euclidean space with coordinates $(x, y, z)$ the mapping to elliptic geometry is given by
-\begin{equation*}
+\begin{equation} \label{eq:elliptic-porting}
     \mathcal{P}_E(p) = (p / d \sin(d), \cos(d)),
-\end{equation*}
+\end{equation}
 and for hyperbolic space, it is given by
 \begin{equation*}
     \mathcal{P}_E(p) = (p / d \sinh(d), \cosh(d)).
@@ -134,5 +136,3 @@ The effect of porting a 1-dimensional point $p$ onto a 1-dimensional elliptic sp
     \caption{Exponential map}
     \label{fig:exp-map}
 \end{figure}
-
-Unfortunately, the mapping introduces distortions
