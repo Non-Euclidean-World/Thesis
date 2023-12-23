@@ -36,12 +36,13 @@ Both of those are described in this chapter.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{chapters/two_dimensional_graphics/resources/SpriteSheet.png}
-    \caption{Inventory Sprite Sheet}
-    \label{fig:inventory}
-\end{figure}
-    
-\begin{figure}[H]
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{chapters/two_dimensional_graphics/resources/SpriteSheet.png}
+        \caption{Inventory Sprite Sheet}
+        \label{fig:inventory}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
     \begin{lstlisting}[language=json,firstline=1]
     {
         "width": 10,
@@ -60,4 +61,5 @@ Both of those are described in this chapter.
 
     \caption{Inventory Sprite Sheet JSON}
     \label{lst:inventory_sprite_sheet_json}
+    \end{minipage}
 \end{figure}
