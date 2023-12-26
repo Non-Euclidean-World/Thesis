@@ -37,14 +37,14 @@ The effect of applying translation to an arbitrary point $a$ is shown in \autore
 \end{figure}
 It can be verified that the geometry origin $g$ is indeed translated to point $g'' = q$.
 We can evaluate the formula for the basis vectors $i = (1, 0, 0, 0)$, $j = (0, 1, 0, 0)$, $k = (0, 0, 1, 0)$, and $l = (0, 0, 0, 1)$ obtaining the translation matrix
-$$
+\begin{equation} \label{eq:translation-matrix}
     T(q) = \begin{bmatrix}
         1 - \mathcal{L}\frac{q_x^2}{1 + q_w} & -\mathcal{L}\frac{q_x q_y}{1 + q_w}  & -\mathcal{L}\frac{q_x q_z}{1 + q_w}  & -\mathcal{L} q_x \\
         -\mathcal{L}\frac{q_y q_x}{1 + q_w}  & 1 - \mathcal{L}\frac{q_y^2}{1 + q_w} & -\mathcal{L}\frac{q_y q_z}{1 + q_w}  & -\mathcal{L} q_y \\
         -\mathcal{L}\frac{q_z q_x}{1 + q_w}  & -\mathcal{L}\frac{q_z q_y}{1 + q_w}  & 1 - \mathcal{L}\frac{q_z^2}{1 + q_w} & -\mathcal{L} q_z \\
         q_x                                  & q_y                                  & q_z                                  & q_w
     \end{bmatrix}
-$$
+\end{equation}
 It can be seen that the translation is an isometry since the row vectors of the matrix are orthonormal.
 
 \subsubsection{Rotation}
@@ -121,8 +121,9 @@ For a given point $p$ in the 3-dimensional Euclidean space with coordinates $(x,
 \end{equation}
 and for hyperbolic space, it is given by
 \begin{equation*}
-    \mathcal{P}_E(p) = (p / d \sinh(d), \cosh(d)).
+    \mathcal{P}_E(p) = (p / d \sinh(d), \cosh(d)),
 \end{equation*}
+where $d = \lVert p \rVert$.
 The effect of porting a 1-dimensional point $p$ onto a 1-dimensional elliptic space can be seen in \autoref{fig:exp-map}.
 \begin{figure}[h]
     \centering
@@ -130,3 +131,11 @@ The effect of porting a 1-dimensional point $p$ onto a 1-dimensional elliptic sp
     \caption{Exponential map}
     \label{fig:exp-map}
 \end{figure}
+
+\subsubsection*{Porting vectors}
+A vector $v$ starting at a point $p$ can be ported to non-Euclidean space by translating it to a point $\mathcal{P}(p)$.
+Hence the ported vector $v'$ is given by
+\begin{equation*}
+    v' = (v, 0) T(\mathcal{P}(p)),
+\end{equation*}
+where $T$ is the translation matrix \ref{eq:translation-matrix}.
