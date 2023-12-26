@@ -1,0 +1,32 @@
+\subsection*{Marching Cubes} \label{subsec:marching_cubes}
+Marching cubes is an algorithm for generating a 3D mesh from a scalar field.
+It was first described by William E. Lorensen and Harvey E. Cline in 1987 \cite{marching_cubes}.
+The main idea behind the algorithm is to divide the scalar field into cubes and then generate a mesh for each one of them.
+
+Some isolevel is chosen and then each point that has a value greater than the isolevel is considered to be "above" the surface and each point with a value lower than the isolevel is considered to be "below" the surface.
+We know that a surface has to separate the points that are above it from the points that are below it.
+Every cube has 8 vertices and each vertex is either above or below the surface which gives us a total of 256 combinations (some combinations being rotations of others).
+For each of these combinations we use a precomputed table to generate a mesh.
+The table tells us which edges of the cube are intersected by the surface and how to connect them.
+To make the mesh look smoother we interpolate the position of the vertices on the edges based on the values of the scalar field at the vertices.
+This is done by using the linear interpolation. % Maybe add formula here?
+This gives us a mesh.
+
+However to make the mesh look even smoother we also need to calculate the normal vectors for each vertex.
+The normal vectors for each vertex of the scalar field are calculated using \autoref*{eq:normal_vector}
+\begin{equation}
+    \label{eq:normal_vector}
+    n(x, y, z) = \begin{bmatrix}
+        s(x + 1, y, z) - s(x - 1, y, z) \\
+        s(x, y + 1, z) - s(x, y - 1, z) \\
+        s(x, y, z + 1) - s(x, y, z - 1)
+      \end{bmatrix}
+\end{equation}
+where $s$ is the scalar field and $n$ is the normal vector.
+These vectors are used to calculate the mesh normals using the same interpolation used for the mesh.
+
+Last part of creating the mesh is assigning the colors to each vertex.
+Each vertex of the scalar field is assigned a type which is described in \autoref*{subsec:scalar_field}.
+Each type has a color assigned to it.
+The color of each vertex of the mesh is calculated by interpolating the colors of the vertices of the scalar field.
+
