@@ -4,6 +4,9 @@ There are two ways we could implement placing objects in the scene:
     \item Port the object to non-Euclidean geometry and then use the translation given by \autoref{eq:translation},
     \item Translate the object using ordinary Euclidean translation and then port it to non-Euclidean geometry.
 \end{enumerate}
+We will now shortly discuss both options.
+
+\subsubsection*{Port, then translate}
 The first option is undesirable, as it may significantly change the relative positions of objects in the scene.
 To see why, let's consider two copies of a 2-dimensional rectangle that we will first port to the spherical geometry, and then translate using the non-Euclidean translation.
 The rectangle with vertices $a = (-0.5, -0.7)$, $b = (0.5, -0.7)$, $c = (0.5, 0.5)$, $d = (-0.5, 0.5)$ is ported to spherical geometry using \autoref{eq:elliptic-porting}.
@@ -52,7 +55,8 @@ The effect is even more visible in the implementation. \autoref{fig:misaligned-w
     \label{fig:misaligned-wheel}
 \end{figure}
 
-The second option isn't unfortunately free of distortions as well.
+\subsubsection*{Translate, then port}
+The second option isn't unfortunately free of distortions either.
 For example, consider two identical squares of side length $0.5$.
 The first one with the bottom-left corner at the point $(0,0)$ and the second one with the corresponding corner at $(0.5, 0.5)$.
 After porting to spherical geometry using the \autoref{eq:elliptic-porting}, we get squares with side lengths (listed counter-clockwise starting at the bottom edge):
@@ -80,6 +84,7 @@ This effect can be seen in \autoref{fig:bending-car}.
     \label{fig:bending-car}
 \end{figure}
 
+\subsubsection*{Spherical space}
 To minimize the distortions in spherical space we employed the following method.
 Due to the periodic nature of the porting given by \autoref{eq:elliptic-porting}, the scene has to be confined inside a 3-dimensional ball of radius $2\pi$.
 Since the distortions increase as an object is farther from the origin, we decided to split the scene into two physical regions -- balls of radius $\pi$.
@@ -94,7 +99,9 @@ and points $p$ in the second ball (which is centered at a point $c$) using the f
 where $p' = p - c$.
 In the 2-dimensional case, the regions become disks with radii of length $\pi$, and the effect of using \autoref{eq:spherical-port-1} and \autoref{eq:spherical-port-2} can be visualized as "wrapping" the first disk on the upper half of a unit sphere, and "wrapping" the second one on the lower half of the sphere.
 
+
+\subsubsection*{Hyperbolic space}
 Dealing with distortions in hyperbolic space requires a more drastic approach because the scene we wished to port was potentially infinite.
-The main goal was to keep the distortions as small as possible near the camera.
+The main goal was to keep the distortions as small as possible near the camera and still show the visual aspects indicative of setting the scene in non-Euclidean geometry.
 To achieve this, the camera position is fixed at some point close to the origin, e.g. $(0, 1, 0)$.
 The movement of the camera is then simulated by moving all of the objects in the scene in the direction opposite to the camera's movement direction.

@@ -62,7 +62,7 @@ It can be shown that a rotation about an axis through the origin is the same as 
 %     \end{split}
 % \end{equation*}
 
-The camera transformation allows us to describe the scene from the viewer's point of view.
+The camera transformation allows us to describe the scene from the viewer's perspective.
 The transformation is defined in terms of the \textit{eye position} $e$, and three orthonormal vectors in the tangent space of the eye:
 \begin{enumerate}
     \item the right direction $i'$,
@@ -90,32 +90,26 @@ As the result of the transformation, the eye position is mapped to the geometry 
 Furthermore, the vectors $i'$, $j'$, and $k'$ are mapped to $i$, $j$, and $k$, respectively.
 
 \subsubsection{Perspective transformation}
-According to \cite{Szirmay-Kalos2022}, the perspective transformation is given by the matrix \textcolor{red}{[but we don't do it this way, in fact, I don't know how our projection matrix works.]}
+The perspective transformation is described using a projection matrix $P$.
+The projection matrix we use in spherical geometry is identical to the one used in the \textit{Unity} implementation of \cite{Szirmay-Kalos2022} (see \url{https://github.com/mmagdics/noneuclideanunity}).
+It is parameterized by the \textit{near plane distance} $n$, \textit{far plane distance} $f$, \textit{aspect ratio} ASP, and \textit{field of view} FOV:
 \begin{equation*}
+    P =
     \begin{bmatrix}
-        1 / s_x & 0       & 0      & 0  \\
-        0       & 1 / s_y & 0      & 0  \\
-        0       & 0       & \alpha & -1 \\
-        0       & 0       & \beta  & 0
+        s_x & 0   & 0  & 0  \\
+        0   & s_y & 0  & 0  \\
+        0   & 0   & 0  & -1 \\
+        0   & 0   & -n & 0
     \end{bmatrix},
 \end{equation*}
-where $s_x$ and $s_y$ depend on the field of view, and the parameters $\alpha$ and $\beta$ depend on the type of the geometry.
-In Euclidean geometry,
+where $s_x = 2n / (r - l)$, $s_y = 2n / (t - b)$, and $r$, $l$, $t$, $b$ are defined in terms of $u = f \tan(\mathrm{FOV})$:
 \begin{equation*}
-    \alpha = -\frac{d_\mathrm{min} + d_\mathrm{max}}{d_\mathrm{min} - d_\mathrm{max}}, \;
-    \beta = -\frac{2d_\mathrm{min}d_\mathrm{max}}{d_\mathrm{max} - d_\mathrm{min}}.
+    r = u \cdot \mathrm{ASP}, \,
+    l = -u \cdot \mathrm{ASP}, \,
+    t = u, \,
+    b =  -u.
 \end{equation*}
-In hyperbolic geometry,
-\begin{equation*}
-    \alpha = -\frac{\sinh(d_\mathrm{min} + d_\mathrm{max})}{\sinh(d_\mathrm{min} - d_\mathrm{max})}, \;
-    \beta = -\frac{2\sinh(d_\mathrm{min}) \sinh(d_\mathrm{max})}{\sinh(d_\mathrm{max} - d_\mathrm{min})}.
-\end{equation*}
-
-In spherical geometry,
-\begin{equation*}
-    \alpha = -\frac{\sin(d_\mathrm{min} + d_\mathrm{max})}{\sin(d_\mathrm{min} - d_\mathrm{max})}, \;
-    \beta = -\frac{2\sin(d_\mathrm{min}) \sin(d_\mathrm{max})}{\sin(d_\mathrm{max} - d_\mathrm{min})}.
-\end{equation*}
+For hyperbolic and Euclidean geometries, the standard projection matrix is used.
 
 \subsubsection*{Porting objects}
 The positions of objects in the scene are specified in a 3-dimensional Euclidean space.
