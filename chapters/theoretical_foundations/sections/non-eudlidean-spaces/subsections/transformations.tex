@@ -77,7 +77,7 @@ An example in \autoref{fig:tangent-space} shows the tangent space of the eye, wi
     \label{fig:tangent-space}
 \end{figure}
 The transformation can be described by the matrix
-\begin{equation*}
+\begin{equation} \label{eq:view-matrix}
     V =
     \begin{bmatrix}
         i'_x            & j'_x            & k'_x            & \mathcal{L}e_x \\
@@ -85,7 +85,7 @@ The transformation can be described by the matrix
         i'_z            & j'_z            & k'_z            & \mathcal{L}e_z \\
         \mathcal{L}i'_w & \mathcal{L}j'_w & \mathcal{L}l'_w & e_w
     \end{bmatrix}
-\end{equation*}
+\end{equation}
 As the result of the transformation, the eye position is mapped to the geometry origin $g$.
 Furthermore, the vectors $i'$, $j'$, and $k'$ are mapped to $i$, $j$, and $k$, respectively.
 
@@ -121,7 +121,7 @@ For a given point $p$ in the 3-dimensional Euclidean space with coordinates $(x,
 \end{equation}
 and for hyperbolic space, it is given by
 \begin{equation*}
-    \mathcal{P}_E(p) = (p / d \sinh(d), \cosh(d)),
+    \mathcal{P}_H(p) = (p / d \sinh(d), \cosh(d)),
 \end{equation*}
 where $d = \lVert p \rVert$.
 The effect of porting a 1-dimensional point $p$ onto a 1-dimensional elliptic space can be seen in \autoref{fig:exp-map}.
@@ -135,7 +135,7 @@ The effect of porting a 1-dimensional point $p$ onto a 1-dimensional elliptic sp
 \subsubsection*{Porting vectors}
 A vector $v$ starting at a point $p$ can be ported to non-Euclidean space by translating it to a point $\mathcal{P}(p)$.
 Hence the ported vector $v'$ is given by
-\begin{equation*}
+\begin{equation} \label{eq:porting-vector}
     v' = (v, 0) T(\mathcal{P}(p)),
-\end{equation*}
+\end{equation}
 where $T$ is the translation matrix \ref{eq:translation-matrix}.
