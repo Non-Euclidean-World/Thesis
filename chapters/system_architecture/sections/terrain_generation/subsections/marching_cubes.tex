@@ -1,0 +1,31 @@
+\subsection{Marching Cubes} \label{subsec:marching_cubes}
+The idea of the algorithm is described in \autoref*{sec:theory_theory_marching_cubes}.
+This section will describe the way the algorithm was implemented in our project.
+
+To make the mesh look smoother we interpolate the position of the vertices on the edges based on the values of the scalar field at the vertices.
+This is done by using the linear interpolation given by equation \autoref{eq:linear_interpolation}.
+\begin{equation}
+  \label{eq:linear_interpolation}
+  \mathbf{P} = \mathbf{V_1} + \frac{\text{IsoLevel} - v_1}{v_2 - v_1} \times (\mathbf{V_2} - \mathbf{V_1})
+\end{equation}
+where P is the resulting position of the vertex, V1 and V2 are the positions of the vertices on the edge, v1 and v2 are the values of the scalar field at the vertices and IsoLevel is the isolevel of the mesh.
+  
+This gives us a mesh.
+However to make the mesh look even smoother we also need to calculate the normal vectors for each vertex.
+The normal vectors for each vertex of the scalar field are calculated using \autoref*{eq:normal_vector}
+\begin{equation}
+    \label{eq:normal_vector}
+    n(x, y, z) = \begin{bmatrix}
+        s(x + 1, y, z) - s(x - 1, y, z) \\
+        s(x, y + 1, z) - s(x, y - 1, z) \\
+        s(x, y, z + 1) - s(x, y, z - 1)
+      \end{bmatrix}
+\end{equation}
+where $s$ is the scalar field and $n$ is the normal vector.
+These vectors are used to calculate the mesh normals using the same interpolation used for the mesh \autoref{eq:linear_interpolation}.
+
+Last part of creating the mesh is assigning the colors to each vertex.
+Each vertex of the scalar field is assigned a type which is described in \autoref*{subsec:scalar_field}.
+Each type has a color assigned to it.
+The color of each vertex of the mesh is calculated by interpolating the colors of the vertices of the scalar field using \autoref{eq:linear_interpolation}.
+
