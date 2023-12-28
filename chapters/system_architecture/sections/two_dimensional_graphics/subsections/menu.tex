@@ -1,5 +1,5 @@
 \subsection{Menu} \label{sec:menu}
-Menu is a lot more complicated than the HUD which is described in \autoref*{sec:hud}.
+Menu is a lot more complicated than the HUD which is described in \autoref{sec:hud}.
 Because of that we decided to create a framework for creating menus.
 This framework was heavily inspired by Flutter.
 It uses the same concepts and terminology.
@@ -8,9 +8,9 @@ A widget is a class that has a \texttt{Render} method as well as a \texttt{GetSi
 The \texttt{Render} method takes a context which includes information about the position and size on the screen that the widget can render to.
 Some widgets also have children so the overall structure of the menu is a tree of widgets.
 
-An example of a widget is shown in \autoref*{fig:example_widget}.
+An example of a widget is shown in \autoref{fig:example_widget}.
 This widget renders the main menu of the game.
-The rendering logic of this widget can be seen in \autoref*{fig:widget_logic}.
+The rendering logic of this widget can be seen in \autoref{fig:widget_logic}.
 The idea is as follows.
 The root widget calls the render method of it's child which is the \texttt{Background} widget.
 The \texttt{Background} widget renders a background color.
@@ -22,10 +22,10 @@ The process stops at the leaf and the render method is called on the children of
 
 This is a simplified version of the rendering logic as each widget has multiple options and rules that change how it or it's children are rendered.
 For example, the \texttt{Column} widget has a \texttt{alignment} property which changes how the children are aligned.
-The \texttt{Button} widget in the \autoref*{fig:widget_logic} itself is a tree of widgets.
+The \texttt{Button} widget in the \autoref{fig:widget_logic} itself is a tree of widgets.
 
 This approach of rendering the menu is very flexible and allows for a lot of customization.
-It improves on the method used to render the HUD described in \autoref*{sec:hud}.
+It improves on the method used to render the HUD described in \autoref{sec:hud}.
 This approach is not common in game development.
 Usually menus are created by putting elements on the screen at specific positions. % TODO: cite something
 In this part we believe that our approach is better than the traditional one and improves on approaches used in most popular game engines like Unity or Godot.
