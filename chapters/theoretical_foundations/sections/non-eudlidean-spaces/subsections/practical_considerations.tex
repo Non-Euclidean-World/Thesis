@@ -86,8 +86,8 @@ This effect can be seen in \autoref{fig:bending-car}.
 
 \subsubsection*{Spherical space}
 To minimize the distortions in spherical space we employed the following method.
-Due to the periodic nature of the porting given by \autoref{eq:elliptic-porting}, the scene has to be confined inside a 3-dimensional ball of radius $2\pi$.
-Since the distortions increase as an object is farther from the origin, we decided to split the scene into two physical regions -- balls of radius $\pi$.
+Due to the periodic nature of the porting given by \autoref{eq:elliptic-porting}, the scene has to be confined inside a 3-dimensional ball of radius $\pi$.
+Since the distortions increase as an object is farther from the origin, we decided to split the scene into two physical regions -- balls of radius $\pi / 2$.
 Points $p$ in the first ball (centered at the origin) are mapped to spherical geometry using the mapping
 \begin{equation} \label{eq:spherical-port-1}
     \mathcal{P}_{E,1}(p) = (p / \lVert p\rVert \sin(\lVert p\rVert), \cos(\lVert p\rVert))
