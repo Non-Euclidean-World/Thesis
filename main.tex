@@ -9,7 +9,9 @@
 %\usepackage[MeX]{polski} % Not needed unless You have a name with polish symbols or sth
 \usepackage[T1]{fontenc}
 \usepackage[english, polish]{babel}
-
+\usepackage{biblatex}
+\usepackage{xcolor}
+\addbibresource{references.bib}
 
 \usepackage{amsmath, amsfonts, amsthm, latexsym} % MOSTLY MATHEMATICAL SYMBOLS
 
@@ -265,19 +267,15 @@
 \input{chapters/two_dimensional_graphics/two_dimensional_graphics.tex}
 \input{chapters/terrain_generation/terrain_generation.tex}
 \input{chapters/user_manual/user_manual.tex}
+\input{chapters/theoretical_foundations/theoretical_foundations.tex}
+
 
 % ------------------------------- BIBLIOGRAPHY ---------------------------
 % LEXICOGRAPHICAL ORDER BY AUTHORS' LAST NAMES
 % FOR AMBITIOUS ONES - USE BIBTEX
 
 
-\begin{thebibliography}{20} % IF YOU HAVE MORE REFERENCES, WRITE THE BIGGER NUMBER
-
-  \bibitem[1]{Ktos} A. Author, \emph{Title of a book}, Publisher, year, page--page.
-  \bibitem[2]{Innyktos} J. Bobkowski, S. Dobkowski, Title of an article, \emph{Magazine X, No. 7}, year, PAGE--PAGE.
-  \bibitem[3]{B} C. Brink, Power structures, \emph{Algebra Universalis 30(2)}, 1993, 177--216.
-  \bibitem[4]{H} F. Burris, H. P. Sankappanavar, \emph{A Course of Universal Algebra}, Springer-Verlag, New York, 1981.
-\end{thebibliography}
+\printbibliography
 \pagenumbering{gobble}
 \thispagestyle{empty}
 
