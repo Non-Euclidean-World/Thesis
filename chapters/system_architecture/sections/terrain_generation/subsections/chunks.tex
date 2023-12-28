@@ -8,7 +8,7 @@ This solution is much more efficient but is also causes some problems.
 One problem is that the terrain is not continuous.
 Every time we edit a chunk we need to make sure that the edges of the chunk are the same as the edges of the neighboring chunks.
 This is done by making sure that when a function that updates one chunk is called it is also called with the exact same parameters for other affected chunks.
-Without this the terrain would have holes in it between chunks which is shown in a screenshot from an early version of the game in \autoref*{fig:gaps_between_chunks}.
+Without this the terrain would have holes in it between chunks which is shown in a screenshot from an early version of the game in \autoref{fig:gaps_between_chunks}.
 
 Another problem is that the algorithm we used for generating the terrain, described in \autoref*{subsec:marching_cubes}, calculates normal vectors based on the values of the scalar field around the point at which the normal is calculated.
 This means that that the normal vectors at the edges of the chunks have to be calculated differently.

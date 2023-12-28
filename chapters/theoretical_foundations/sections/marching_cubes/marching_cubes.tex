@@ -2,7 +2,7 @@
 One of the requirements for our project was to incorporate terrain generation.
 Numerous algorithms exist for this purpose, and the chosen algorithm for our project is known as marching cubes.
 This algorithm was selected due to its simplicity, versatility, and standardization.
-Marching cubes is a straightforward algorithm that can be easily modified to suit different requirements, as explained in detail in \autoref{sec:system_architecture_terrain_generation}.
+Marching cubes is a relatively straightforward algorithm that can be easily modified to suit different requirements, as explained in detail in \autoref{sec:system_architecture_terrain_generation}.
 Furthermore, it is widely used in various applications and is well-documented, making its understanding and implementation easier.
 
 The concept of marching cubes was first introduced by William E. Lorensen and Harvey E. Cline in 1987 \cite{Marching-Cubes}.
@@ -14,6 +14,7 @@ Based on this information, a mesh is created to separate the vertices above the 
 An example of this process is illustrated in \autoref{fig:cube_example}, where $v0$ is below the surface, while the remaining vertices are above it.
 It is important to note that the same effect would be achieved if $v0$ were above the surface and the other vertices were below it.
 
+\todo{Can we use images found online? If so how do we cite them?}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{chapters/theoretical_foundations/sections/marching_cubes/resources/cube-example.png}

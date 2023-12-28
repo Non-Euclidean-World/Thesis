@@ -6,12 +6,12 @@ To make the mesh look smoother we interpolate the position of the vertices on th
 This is done by using the linear interpolation given by equation \autoref{eq:linear_interpolation}.
 \begin{equation}
   \label{eq:linear_interpolation}
-  \mathbf{P} = \mathbf{V_1} + \frac{\text{IsoLevel} - v_1}{v_2 - v_1} \times (\mathbf{V_2} - \mathbf{V_1})
+  P = V_1 + \frac{\text{IsoLevel} - v_1}{v_2 - v_1} \times (V_2 - V_1)
 \end{equation}
-where P is the resulting position of the vertex, V1 and V2 are the positions of the vertices on the edge, v1 and v2 are the values of the scalar field at the vertices and IsoLevel is the isolevel of the mesh.
+where $P$ is the resulting position of the vertex, $V_1$ and $V_2$ are the positions of the vertices on the edge, $v_1$ and $v_2$ are the values of the scalar field at the vertices and IsoLevel is the isolevel of the mesh.
   
 This gives us a mesh.
-However to make the mesh look even smoother we also need to calculate the normal vectors for each vertex.
+To make the impression of a light reflecting off a smooth surface we also need to calculate the normal vectors for each vertex.
 The normal vectors for each vertex of the scalar field are calculated using \autoref*{eq:normal_vector}
 \begin{equation}
     \label{eq:normal_vector}
@@ -21,7 +21,7 @@ The normal vectors for each vertex of the scalar field are calculated using \aut
         s(x, y, z + 1) - s(x, y, z - 1)
       \end{bmatrix}
 \end{equation}
-where $s$ is the scalar field and $n$ is the normal vector.
+where $s)$ is the scalar field and $n$ is the normal vector.
 These vectors are used to calculate the mesh normals using the same interpolation used for the mesh \autoref{eq:linear_interpolation}.
 
 Last part of creating the mesh is assigning the colors to each vertex.
