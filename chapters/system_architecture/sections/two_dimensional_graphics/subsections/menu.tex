@@ -1,7 +1,7 @@
 \subsection{Menu} \label{sec:menu}
 Menu is a lot more complicated than the HUD which is described in \autoref{sec:hud}.
 Because of that we decided to create a framework for creating menus.
-This framework was heavily inspired by Flutter.
+This framework was heavily inspired by Flutter \cite{flutter}.
 It uses the same concepts and terminology.
 The overall idea is that everything is a widget.
 A widget is a class that has a \texttt{Render} method as well as a \texttt{GetSize} method.
@@ -32,16 +32,19 @@ In this part we believe that our approach is better than the traditional one and
 
 \begin{figure}[H]
     \centering
-    \begin{minipage}{0.45\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=0.8\textwidth]{chapters/system_architecture/sections/two_dimensional_graphics/resources/widget_logic.drawio.png}
         \caption{Widget rendering logic.}
         \label{fig:widget_logic}
-    \end{minipage}\hfill
-    \begin{minipage}{0.45\textwidth}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=0.8\textwidth]{chapters/system_architecture/sections/two_dimensional_graphics/resources/main-menu.png}
         \caption{Main menu.}
         \label{fig:example_widget}
-    \end{minipage}
+    \end{subfigure}
+
+    \caption{Example widget.}
 \end{figure}
