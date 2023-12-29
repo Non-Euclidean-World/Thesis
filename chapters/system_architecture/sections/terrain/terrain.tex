@@ -1,0 +1,18 @@
+\section{Terrain} \label{sec:system_architecture_terrain}
+The terrain was designed to be randomly generated so that the player can have a new, unique map every time they play.
+The second important part of the design was making sure that the player could edit the terrain in any way they wanted.
+As described in \autoref{sec:theory_theory_marching_cubes} the marching cubes algorithm was chosen as the base of the terrain generation process.
+This section will describe how we used this algorithm to generate the terrain and allow the player to edit it.
+
+The algorithm consists of the following steps:
+\begin{itemize}
+    \item Define the scalar field function.
+    \item Divide the world into chunks.
+    \item Generate the mesh.
+\end{itemize}
+
+Each of these steps will be described in detail in this section.
+
+\input{chapters/system_architecture/sections/terrain/subsections/scalar_field.tex}
+\input{chapters/system_architecture/sections/terrain/subsections/chunks.tex}
+\input{chapters/system_architecture/sections/terrain/subsections/marching_cubes.tex}

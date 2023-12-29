@@ -1,0 +1,13 @@
+\subsection{Editing terrain} \label{sec:terrain_editing}
+Editing terrain is done by changing the values of the scalar field.
+When a chunk is first created the values of the scalar field are calculated for each point in the chunk and then saved.
+This allows for the scalar field values to be edited.
+When a chunk is edited the values of the scalar field are recalculated for the edited points and the points around them.
+The player can choose a point to build or mine at.
+Values of the scalar field close to that point are then changed based on the pickaxe the player uses and how long they mine for.
+The closer the point to the chosen point the more it is affected.
+Gaussian distribution is used to calculate exactly how much each point is affected.
+
+Once the values of the scalar field are updated the chunk is regenerated.
+This is a very time-consuming process which is why it was moved to a second thread.
+The communication between that thread and the main one is described in: \todo{Describe chunk worker}

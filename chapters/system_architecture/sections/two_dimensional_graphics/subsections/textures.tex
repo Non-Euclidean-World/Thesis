@@ -23,13 +23,13 @@ The first one contains the images for the HUD.
 This includes the inventory and all the items in it.
 This sprite sheet is stored as a PNG file.
 Sprite sheet with the inventory can be seen in \autoref{fig:inventory}.
-It also has a JSON file which contains the position and size of each sprite which can be seen in \autoref{lst:inventory_sprite_sheet_json}.
+It also has a JSON file that contains the position and size of each sprite which can be seen in \autoref{lst:inventory_sprite_sheet_json}.
 The second sprite sheet contains the images of all letters and symbols used in the game.
 This one is not stored in a file.
 Instead, it is generated at runtime right after the program launches.
 It uses SkiaSharp library to create a bitmap with all the ASCII characters.
 This bitmap is then converted to a texture.
-The position and size of each symbol is calculated using the font metrics.
+The position and size of each symbol are calculated using the font metrics.
 
 These techniques are used to draw the HUD and the Menu.
 Both of those are described in this chapter.
