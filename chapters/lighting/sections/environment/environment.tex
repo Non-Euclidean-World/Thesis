@@ -54,13 +54,13 @@ The model matrix is responsible for rotating the skybox (similarily to how stars
 The view matrix has to be modified so that the skybox doesn't move along with the camera.
 The part responsible for translation can be removed from the view matrix by replacing the last row the the view matrix with the vector $[0, 0, 0, 1]$ \cite{LearnOpenGL-Cubemaps}.
 
-The day is split into \textit{phases}, each characterized by the color of the sky at the zenith, the sky's color at the horizon, the color of the sun, and \textit{star's visibility factor}.
+The day is split into \textit{phases}, each characterized by the color of the sky at the zenith, the sky's color at the horizon, the color of the sun, and \textit{stars' visibility factor}.
 In the fragment shader, we determine the color of each fragment.
 This is done by first obtaining the zenith and horizon colors by interpolating between the corresponding colors for the previous and next phase based on the current time.
-In the same manner, we obtain the current star's visibility factor.
-Then, we obtain a sky color for a given fragment by interpolating between the zenith and horizon colors based on the height of the fragment\footnote{The "position" of a fragment in this context is given by world space coordinates, normalized so that we're treating the points as located on a sphere (\textit{skydome}).}.
+In the same manner, we obtain the current stars' visibility factor.
+Then, we obtain a sky color for a given fragment by interpolating between the zenith and horizon colors based on the height of the fragment\footnote{The "position" of a fragment in this context is given by world space coordinates, normalized so that we're treating the points as located on a sphere (\textit{skydome}). The height is then simply the $y$ coordinate of the fragment's position.}.
 The sun's position is given by a vector $s$ that rotates at the same rate as the skybox.
 Calculating a dot product $d$ of $s$ with the current fragment's position allows us to easily draw the sun and the sun glare by mixing the sky's color with the sun's color in proportions depending on $d$.
-As the last step, we mix the pure-day-time color of the sky with the pure-night-time texture of the stars in proportions given by the star's visibility factor.
+As the last step, we mix the pure-day-time color of the sky with the pure-night-time texture of the stars in proportions given by the stars' visibility factor.
 
 The day night cycle hasn't been implemented for the spherical space, as the terrain in the spherical space fully "encloses" the scene leaving no way of seeing anything "outside".
