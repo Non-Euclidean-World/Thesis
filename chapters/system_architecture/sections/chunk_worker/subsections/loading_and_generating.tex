@@ -1,4 +1,4 @@
-\subsection{Loading and generating chunks}
+\subsection{Loading and generating chunks} \label{subsec:loading-and-generating}
 On each render frame, the main thread calls the \texttt{UpdateCurrentPosition} method.
 This method, based on the camera's current position and the render distance, determines which chunks should be loaded into the game.
 If a chunk isn't already loaded or isn't queued for loading, the position of the chunk is enqueued into the \texttt{chunksToLoad} queue.
