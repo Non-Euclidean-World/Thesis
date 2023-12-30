@@ -1,0 +1,6 @@
+\section{Model Loader}\label{model_loader}
+
+The model loader is responsible for loading models from the file system.
+It loads COLLADA files using AssipmNet to convert them to model class objects.
+Each vertex in the mesh of the model must be dependent on at most 4 bones.
+It creates VAOs for each mesh of the model, stores them in the Model class object, loads a PNG file, and stores it in a Texture class object.
