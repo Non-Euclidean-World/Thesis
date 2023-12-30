@@ -1,0 +1,20 @@
+\section{Physics}
+The Physics component is responsible for collision detection, ray casting, and physical modeling.
+Each game object is represented by a \textit{body} (each body has an associated \textit{body handle}) in the physics engine.
+This one-to-one mapping is stored in the \texttt{Scene} class in an object of \texttt{SimulationMembers} type.
+\texttt{SimulationMembers} allows for adding and removing simulation members as well as accessing handles to bodies in the physics engine associated with a given game object.
+Game objects are represented by either simple or composite shapes in the physical simulation.
+Simple shapes used in the game include cylinders, capsules, and boxes.
+Composite shapes arise by composing simple shapes.
+To facilitate debugging, the Physics component also provides a way to extract all shapes from the simulation (and decompose composite shapes) which then can be shown in debug mode.
+The body that represents the terrain was created as a separate shape from the terrain mesh triangle-by-triangle.
+
+Game objects can listen and respond to collisions by registering their contact callbacks via the API in \texttt{SimulationManager}.
+Such objects implement the \texttt{IContactEventListener} interface whose implementations define the contact callbacks.
+The only information about the collision is which two bodies collided and where.
+
+Some game objects can cast rays.
+An example of such an object is the player who uses a ray to define a place where terrain modification should take place.
+Each ray in the physics engine has an ID number, direction, etc.
+An object that wishes to cast rays has to therefore implement an interface (\texttt{IRayCaster}) that exposes all the necessary information.
+\todo{Add screenshots of bounding shapes, maybe a screenshot of some huge number of bots to see that we can handle that}.
