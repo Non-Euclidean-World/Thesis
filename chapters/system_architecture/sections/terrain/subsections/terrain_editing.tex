@@ -6,7 +6,16 @@ When a chunk is edited the values of the scalar field are recalculated for the e
 The player can choose a point to build or mine at.
 Values of the scalar field close to that point are then changed based on the pickaxe the player uses and how long they mine for.
 The closer the point to the chosen point the more it is affected.
-Gaussian distribution is used to calculate exactly how much each point is affected.
+A 3D Gaussian function is used to calculate exactly how much each point is affected.
+The function is shown in \autoref{eq:gaussian}.
+
+\begin{equation}
+    \label{eq:gaussian}
+    f(x,y,z) = e^{-a \left((p_x - c_x)^2 + (p_y - c_y)^2 + (p_z - c_z)^2\right)}
+\end{equation}
+
+In \autoref{eq:gaussian} $p_x$, $p_y$ and $p_z$ are the coordinates of the point being edited, $c_x$, $c_y$ and $c_z$ are the coordinates of the chosen point and $a$ is a constant.
+Moreover, if the distance between the chosen point and the point being edited is greater than the range of the pickaxe, the point is not affected.
 
 Once the values of the scalar field are updated the chunk is regenerated.
 This is a very time-consuming process which is why it was moved to a second thread.
