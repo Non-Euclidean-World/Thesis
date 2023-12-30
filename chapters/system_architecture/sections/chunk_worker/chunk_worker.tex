@@ -1,4 +1,4 @@
-\section{Chunk worker} \label{sec:chunk-worker}
+\section{Chunk management system} \label{sec:chunk-worker}
 The majority of the game logic is handled by a single thread.
 The only two exceptions are the physics engine (external library) and the chunk management system.
 The chunk management system is split between two threads: the main thread (the thread that the rest of the application is running on) and the \textit{chunk worker's} thread.
