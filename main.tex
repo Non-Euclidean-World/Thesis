@@ -11,6 +11,7 @@
 \usepackage[english, polish]{babel}
 \usepackage{biblatex}
 \usepackage{xcolor}
+\usepackage{subcaption}
 \addbibresource{references.bib}
 
 \usepackage{amsmath, amsfonts, amsthm, latexsym} % MOSTLY MATHEMATICAL SYMBOLS
@@ -161,11 +162,40 @@
 
 % -------------------------- USER SETTINGS ---------------------------
 
+\usepackage{float}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{menukeys}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color[rgb]{0.95, 0.95, 0.95},
+    stringstyle=\color[rgb]{0.25,0.5,0.35},
+    keywordstyle=\color[rgb]{0.5,0.0,0.35},
+    commentstyle=\color[rgb]{0.5,0.5,0.5},
+    string=[s]{"}{"},
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    tabsize=2,
+    keywords={},
+}
+
 \newcommand{\tytul}{Proceduralne generowanie świata i wyzwania związane z renderowaniem w przestrzeniach nieeuklidesowych}
 \renewcommand{\title}{Procedural world generation and the challenges of rendering in non-Euclidean spaces}
 \newcommand{\type}{Engineer} % Master OR Engineer
 \newcommand{\supervisor}{Paweł Kotowski, Ph.D.} % TITLE AND NAME OF THE SUPERVISOR
-
+\newcommand{\todo}[1]{\textbf{\textcolor{red}{TODO: #1}}}
 
 
 \begin{document}
@@ -240,6 +270,9 @@
 \input{chapters/introduction.tex}
 \input{chapters/theoretical_foundations/theoretical_foundations.tex}
 \input{chapters/system_architecture/system_architecture.tex}
+\input{chapters/user_manual/user_manual.tex}
+
+\input{chapters/lighting/lighting.tex}
 
 % ------------------------------- BIBLIOGRAPHY ---------------------------
 % LEXICOGRAPHICAL ORDER BY AUTHORS' LAST NAMES
