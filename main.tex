@@ -11,6 +11,7 @@
 \usepackage[english, polish]{babel}
 \usepackage{biblatex}
 \usepackage{xcolor}
+\usepackage{subcaption}
 \addbibresource{references.bib}
 
 \usepackage{amsmath, amsfonts, amsthm, latexsym} % MOSTLY MATHEMATICAL SYMBOLS
@@ -170,8 +171,6 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
-\newcommand{\todo}[1]{\textbf{\textcolor{red}{TODO: #1}}}
-
 \lstdefinelanguage{json}{
     basicstyle=\normalfont\ttfamily,
     numbers=left,
@@ -196,7 +195,7 @@
 \renewcommand{\title}{Procedural world generation and the challenges of rendering in non-Euclidean spaces}
 \newcommand{\type}{Engineer} % Master OR Engineer
 \newcommand{\supervisor}{Paweł Kotowski, Ph.D.} % TITLE AND NAME OF THE SUPERVISOR
-
+\newcommand{\todo}[1]{\textbf{\textcolor{red}{TODO: #1}}}
 
 
 \begin{document}
@@ -273,6 +272,7 @@
 \input{chapters/system_architecture/system_architecture.tex}
 \input{chapters/user_manual/user_manual.tex}
 
+\input{chapters/lighting/lighting.tex}
 
 % ------------------------------- BIBLIOGRAPHY ---------------------------
 % LEXICOGRAPHICAL ORDER BY AUTHORS' LAST NAMES

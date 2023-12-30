@@ -1,0 +1,25 @@
+\section{Lighting}
+Lighting is an important aspect of the game, it makes the game more immersive and has a major impact on how the player perceives the game.
+Artificial light sources present in the game are also indispensable when exploring the world during the in-game night.
+In the game, we use three types of light casters: \textit{directional lights}, \textit{point lights}, and \textit{spotlights}.
+As the lighting model, we used the \textit{Phong lighting model}.
+In this model, light is considered to have 3 components:
+\begin{itemize}
+    \item ambient lighting $I_a$ (with coefficient $k_a$),
+    \item diffuse lighting $I_d$ (with coefficient $k_d$),
+    \item specular lighting $I_s$ (with coefficient $k_s$ and material shiness constant $\alpha$).
+\end{itemize}
+In the case of $N$ light sources in the scene, the total illumination is calculated using the formula
+\begin{equation}
+    L = k_a I_a + \sum_{i = 1}^N {k_d I_{i, d} \max(0, \langle n, l_i, \rangle) + k_s I_{i, s} \max(0, \langle r_i, v \rangle^\alpha )},
+\end{equation}
+where $n$ is the normal vector of the fragment, $l$ is the vector pointing from the fragment to the light source, $r$ is the reflection of $l$ on $n$, and $v$ is the vector pointing towards the viewer (all of the aforementioned vectors are assumed to be normalized).
+It's important to note that $\langle \cdot, \cdot\rangle$ is the inner product as defined by \autoref{eq:gen-inner-prod}.
+The reflected light vector $r$ is calculated using the usual formula
+\begin{equation*}
+    r = 2 \langle l, n \rangle n - l.
+\end{equation*}
+
+\input{chapters/lighting/sections/lighting/subsections/directional_lighting.tex}
+\input{chapters/lighting/sections/lighting/subsections/point_lights.tex}
+\input{chapters/lighting/sections/lighting/subsections/spotlights.tex}
