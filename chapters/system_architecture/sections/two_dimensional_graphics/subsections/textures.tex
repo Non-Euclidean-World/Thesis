@@ -28,7 +28,7 @@ The second sprite sheet contains the images of all letters and symbols used in t
 This one is not stored in a file.
 Instead, it is generated at runtime right after the program launches.
 It uses SkiaSharp library to create a bitmap with all the ASCII characters.
-This bitmap is then converted to a texture.
+This bitmap is then converted to a texture, which we call the symbol texture.
 The position and size of each symbol are calculated using the font metrics.
 
 These techniques are used to draw the HUD and the Menu.

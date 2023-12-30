@@ -21,7 +21,7 @@ The normal vectors for each vertex of the scalar field are calculated using \aut
         s(x, y, z + 1) - s(x, y, z - 1)
       \end{bmatrix}
 \end{equation}
-where $s(x, y, z)$ is the scalar field function and $n$ is the normal vector.
+where $s(x, y, z)$ is the value scalar field function at $(x,y,z)$ and $n$ is the normal vector.
 These vectors are used to calculate the mesh normals using the same interpolation used for the mesh \autoref{eq:linear_interpolation}.
 
 The last part of creating the mesh is assigning the colors to each vertex.
