@@ -1,0 +1,10 @@
+\section{Printer}
+
+The \texttt{Printer} class is responsible for printing text on the screen.
+It has a static constructor in which it creates a texture with the alphabet.
+To achieve that it uses the SkiaSharp library.
+After the texture is created \texttt{Printer} creates an array of Rectangles that describe the position of each letter on the texture.
+These rectangles are passed to the shader when the text is printed.
+This way only one texture is passed to the shader and the shader uses the rectangles to get the correct letter from the texture which improves performance.
+The class also provides a method for printing a letter which is used in another method to print whole strings.
+There are also methods for printing strings with the specified corner at the specified position.

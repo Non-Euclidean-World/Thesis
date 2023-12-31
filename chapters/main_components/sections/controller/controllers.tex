@@ -1,0 +1,20 @@
+\section{Controllers}
+
+There are eight controller classes in the project:
+
+\begin{itemize}
+    \item  \texttt{PlayerController}
+    \item \texttt{BotsController}
+    \item \texttt{ChunksController}
+    \item \texttt{ProjectilesController}
+    \item \texttt{VehiclesController}
+    \item \texttt{LightSourcesController}
+    \item \texttt{HudController}
+    \item \texttt{BoundingShapesController}
+    \item \texttt{SkyboxController}
+\end{itemize}
+
+All the controller classes serve the same purpose.
+They exist to render objects and deal with object callbacks.
+For example, \texttt{ProjectilesController} renders all existing projectiles and also removes the dead projectiles from the scene.
+Each projectile has a \texttt{IsAlive} property which is read every time a render frame callback is called by the controller to check if the projectile is still alive.
