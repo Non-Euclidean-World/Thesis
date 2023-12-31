@@ -4,12 +4,12 @@ The armature is a set of bones that have different relations to each other and t
 The bones create a node structure with the root being the torso bone.
 Most other bones are children of the torso bone or children of children of the torso bone.
 This relation allows the bones to inherit transformations from their parents.
-If a leg bone moves the foot bone will follow. 
+For example, if a leg bone moves the foot bone will follow. 
 
-It is worth noting that bones do now have to resemble human bones.
+It is worth noting that bone structure does not have to resemble the human bone structure.
 For example in \autoref{fig:armature_foot} we can see a set of bones that are outside of the body.
 These bones are not used to deform the mesh but to interact with other bones.
-Among other things these guarantee that the knee does not bend in the wrong direction.
+Among other things, these guarantee that the knee does not bend in the wrong direction.
 
 
 \begin{figure}[H]
@@ -35,7 +35,7 @@ The bones need to be connected to the mesh.
 Each vertex is assigned a set of bones that influence it with different weights.
 When bones move the vertices move with them according to how much they move and how much a certain bone influences a certain vertex.
 Assigning weights to vertices in Blender is shown in \autoref{fig:vertex_weights}.
-As seen in the figure it is done by selecting a bone and then painting the vertices with a certain weight.
+As can be seen in the figure, it is done by selecting a bone and then painting the vertices with a certain weight.
 
 \begin{figure}[H]
     \centering
@@ -60,8 +60,7 @@ To define an animation a set of keyframes is used.
 The process of creating the keyframes can be seen in \autoref{fig:keyframes}.
 A keyframe is a set of transformations for each bone at a certain time.
 Once the keyframes are defined the animation is interpolated between them to produce a smooth animation.
-In this game there are 2 animations.
-Walking and running both of which are looped to create a continuous animation when the player or a NPC moves.
+In the game, there are two animations: walking and running, both of which are looped to create a continuous animation when the player or an NPC moves.
 
 
 The whole process of rendering an animation is as follows:
