@@ -39,21 +39,9 @@ As can be seen in the figure, it is done by selecting a bone and then painting t
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.8\textwidth]{chapters/theoretical_foundations/sections/models/resources/WeightPaint.png}
-        \caption{Vertex weights.}
-        \label{fig:vertex_weights}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.8\textwidth]{chapters/theoretical_foundations/sections/models/resources/DopeSheet.png}
-        \caption{Keyframes.}
-        \label{fig:keyframes}
-    \end{subfigure}
-
-    \caption{Vertex weights and keyframes.}
+    \includegraphics[width=0.45\textwidth]{chapters/theoretical_foundations/sections/models/resources/WeightPaint.png}
+    \caption{Vertex weights.}
+    \label{fig:vertex_weights}
 \end{figure}
 
 To define an animation a set of keyframes is used.
@@ -62,12 +50,19 @@ A keyframe is a set of transformations for each bone at a certain time.
 Once the keyframes are defined the animation is interpolated between them to produce a smooth animation.
 In the game, there are two animations: walking and running, both of which are looped to create a continuous animation when the player or an NPC moves.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{chapters/theoretical_foundations/sections/models/resources/DopeSheet.png}
+    \caption{Keyframes.}
+    \label{fig:keyframes}
+\end{figure}
+
 
 The whole process of rendering an animation is as follows:
 \begin{enumerate}
     \item The model along with the armature and keyframes are loaded into the game.
     \item A timer is started.
-    \item The bone transformations for the current frame are calculated based on the keyframes and the timer.
+    \item The bone transformations for the current frame are calculated based on the keyframes and the timer, by interpolating between the keyframes.
     \item The bone transformations are passed into the shader.
     \item For each vertex the shader iterates over the bones that influence it and calculates the final position of the vertex based on the bone transformations and their weights.
     \item The animation is rendered.
