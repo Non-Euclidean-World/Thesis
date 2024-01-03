@@ -1,0 +1,11 @@
+\section{Architecture problems} \label{sec:architecture_problems}
+Clean architecture was very difficult to achieve in this project.
+The main reason for this was the fact that it uses three different geometries and each of them is governed by different rules.
+For example, as described in \autoref{subsec:practical_considerations}, in hyperbolic geometry the world moves and the camera is stationary.
+On the other hand in the case of spherical geometry, it has to be known in which of the two regions described in \autoref{subsec:practical_considerations} the object is currently in.
+These are just two examples but there were many more things that only appeared in one of the geometries.
+Adding if else statement for each of these would make the code very messy and difficult to read so we decided on a different approach.
+We used the strategy pattern to define the behaviors in each of the geometries.
+The strategy pattern is a behavioral design pattern that enables the algorithms behavior to be selected at runtime.
+It was originally described in the book \textit{Design Patterns: Elements of Reusable Object-Oriented Software} \cite{Design-Patterns}.
+To provide the appropriate strategy to the object we used the factory pattern also described in this book.
