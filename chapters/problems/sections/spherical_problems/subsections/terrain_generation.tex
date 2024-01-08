@@ -53,3 +53,7 @@ Plots of the functions can be seen in \autoref{fig:step-functions}.
 \end{figure*}
 In our implementation, we use $a = 0.5$ and $k = 0.75$.
 The boundary value depends only on the $y$ coordinate and is simply given by $b(y) = y$ which means that the terrain generated based on this function is flat.
+
+The last modification to the terrain generation system has to do with the average elevation of the terrain.
+It turns out that points located too far from the camera are not rendered correctly\footnote{The problem is probably related to the projection matrix but we didn't investigate this further.}.
+To solve this problem, the terrain is artificially elevated and mining below a certain depth is disallowed.
