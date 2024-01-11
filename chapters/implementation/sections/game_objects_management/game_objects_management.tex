@@ -27,3 +27,12 @@ NPCs move in a way given by a simple algorithm;
 the player can inflict damage to NPCs by shooting projectiles, and so on.
 Game objects can react to collisions with other objects by registering for contact callbacks, i.e. implementing the \texttt{IContactEventListener} interface.
 They can also move (either on their own, like NPCs, or due to the player input) by registering input callbacks, i.e. implementing the \texttt{IInputSubscriber} interface.
+
+In the remainder of this section, we will cover some of the most important components related to managing game objects.
+\input{chapters/implementation/sections/game_objects_management/subsections/animator_class.tex}
+\input{chapters/implementation/sections/game_objects_management/subsections/model_loader_class.tex}
+\input{chapters/implementation/sections/game_objects_management/subsections/physics_project/physics_project.tex}
+\input{chapters/implementation/sections/game_objects_management/subsections/scene_class.tex}
+\input{chapters/implementation/sections/game_objects_management/subsections/controller_classes.tex}
+\input{chapters/implementation/sections/game_objects_management/subsections/transporter_classes.tex}
+\input{chapters/implementation/sections/game_objects_management/subsections/context_class.tex}
