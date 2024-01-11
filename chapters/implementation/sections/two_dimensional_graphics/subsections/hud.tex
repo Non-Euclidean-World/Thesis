@@ -1,0 +1,30 @@
+\subsection{Heads Up Display} \label{sec:hud}
+The HUD encapsulates all the 2D elements that are drawn on top of the 3d scene while the game is running.
+This includes:
+\begin{itemize}
+    \item Crosshair
+    \item FPS counter
+    \item Player position
+    \item Inventory
+\end{itemize}
+
+The Crosshair is a simple cross in the middle of the screen.
+It is used to help the player aim.
+It consists of 2 lines and does not use any textures.
+
+The FPS counter is a simple text that shows the current frame rate.
+It is drawn in the top right corner of the screen.
+It uses the symbol's texture.
+
+The player position is a simple text that shows the current position of the player.
+It is drawn in the top left corner of the screen.
+It uses the symbol's texture.
+
+The inventory is a collection of images that represent the items the player has.
+It is drawn at the bottom of the screen.
+It uses both the item's texture containing the HUD items and the texture containing the alphabet.
+The images of the items are drawn first and then the text is drawn on top of them.
+It is done in this order to optimize the performance by minimizing the number of times a texture is set to 2.
+
+All the elements of the HUD have their positions and sizes.
+Each element is either placed in some position on the screen or is placed relative to some other element.

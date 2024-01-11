@@ -1,0 +1,15 @@
+\section{Rendering}
+Every game object exposes a \texttt{Render()} method.
+The \texttt{Render} methods' signatures differ slightly across different game objects, but they usually take camera position, shader and space curvature as arguments.
+At the time of writing, there are four shaders available for 3D rendering:
+\begin{enumerate}
+    \item light source shader,
+    \item model shader,
+    \item object shader,
+    \item skybox shader.
+\end{enumerate}
+Model shader is used for rendering animated models, whereas light source and object shaders are used for rendering "static" bodies.
+The light source shader is extremely basic: it doesn't take into account other light sources and colors the body uniformly.
+The \texttt{Render} method typically interacts directly with the OpenGL interface, i.e. sets up the uniforms, binds VAOs and makes a draw call.
+In the case of 2D rendering, \texttt{HudShader} class is used.
+The skybox shader is used for rendering the \textit{skybox} i.e. a background used for the scene.
