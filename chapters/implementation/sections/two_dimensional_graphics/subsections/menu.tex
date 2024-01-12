@@ -31,26 +31,20 @@ Usually, menus are created by putting elements on the screen at specific positio
 In this part, we believe that our approach is better than the traditional one and improves on approaches used in for example Godot \cite{Godot-Menu}.
 
 \begin{figure}[h]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
     \centering
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.8\textwidth]{chapters/implementation/sections/two_dimensional_graphics/resources/widget_logic.drawio.png}
-        \caption{Widget rendering logic.}
-        \label{fig:widget_logic}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=0.8\textwidth]{chapters/implementation/sections/two_dimensional_graphics/resources/main-menu.png}
-        \caption{Main menu.}
-        \label{fig:example_widget}
-    \end{subfigure}
+    \includegraphics[width=0.8\textwidth]{chapters/implementation/sections/two_dimensional_graphics/resources/widget_logic.drawio.png}
+    \caption{Widget rendering logic.}
+    \label{fig:widget_logic}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.8\textwidth]{chapters/implementation/sections/two_dimensional_graphics/resources/main-menu.png}
+    \caption{Main menu.}
+    \label{fig:example_widget}
+  \end{subfigure}
 
-    \caption{Example widget.}
+  \caption{Example widget.}
 \end{figure}
-
-\todo{I copy-pasted that but I don't know if we actually need it}
-The \texttt{Menu} class is responsible for rendering the menu and handling user input.
-It makes use of \texttt{SpriteRenderer} to render buttons and graphics.
-It makes use of the \texttt{Printer} class to render text.
-The menu is described in more detail in \autoref{subsec:menu}.
