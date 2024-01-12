@@ -1,0 +1,8 @@
+\subsection{Saving chunks}
+Saving chunks is handled by a process similar to the one discussed in \autoref{subsec:loading-and-generating}.
+On each frame, the main thread in the \texttt{DeleteChunks} function determines which chunks are too far from the player and thus should be removed from the game and saved to disk.
+Positions of these chunks are enqueued into the \texttt{chunksToSave} queue, and their resources are freed.
+More precisely, the removal takes place only if the number of chunks in the game exceeds a certain limit.
+This is so that chunks are not deleted and loaded again constantly when the player moves back and forth between chunks.
+
+The worker thread dequeues chunks' positions from the \texttt{chunksToSave} queue and saves the scalar field associated with a given chunk on the disk.

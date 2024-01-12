@@ -1,0 +1,17 @@
+\subsection{Loading and generating chunks} \label{subsec:loading-and-generating}
+On each render frame, the main thread calls the \texttt{UpdateCurrentPosition} method.
+This method, based on the camera's current position and the render distance, determines which chunks should be loaded into the game.
+If a chunk isn't already loaded or isn't queued for loading, the position of the chunk is enqueued into the \texttt{chunksToLoad} queue.
+
+The worker thread in the \texttt{LoadChunks} function dequeues the positions of the chunks to be loaded from the disk.
+If a chunk is not saved on the disk, it is generated.
+The loaded/generated chunk is then enqueued into the \texttt{loaded} queue.
+
+The main thread through the \texttt{ResolveLoaded} function dequeues a chunk and performs the following actions:
+\begin{enumerate}
+    \item creates a vertex array object for the chunk's mesh,
+    \item creates a collision surface for the chunk,
+    \item adds the chunk to the list of scene's chunks for rendering.
+\end{enumerate}
+
+It's worth noting that the operations in \texttt{ResolveLoaded} function have to be performed on the main thread because they interact with OpenGL and the physics engine APIs.
