@@ -7,10 +7,10 @@ A game object, such as a humanoid-looking bot or a car most often can be underst
 \end{enumerate}
 The visual layer of an object describes how the object looks like during the gameplay.
 This side of a game object we will call a \textit{model}.
-The information about models (vertices, normal vectors, UV mappings, textures, and animations) is read from COLLADA and PNG files and stored in the \texttt{Model} class.
+The information about models (vertices, normal vectors, UV mappings, textures, and animations) is read from COLLADA and PNG files (see \autoref{subsec:model_loader-class}) and stored in the \texttt{Model} class.
 It's important to note that if multiple game objects look the same, the model information is shared between them in the form of a single \texttt{ModelResource} class instance.
 More specifically, the \texttt{ModelResource} class is abstract, and its derived classes are singletons.
-Animated models additionally use the \texttt{Aminator} class which provides a way to calculate the bone transforms based on the elapsed time.
+Animated models additionally use the \texttt{Aminator} class (see \autoref{subsec:animator-class}) which provides a way to calculate the bone transforms based on the elapsed time.
 Some models are \textit{compound}.
 The car model, for example, stores information about the look of the wheels and body separately.
 
@@ -18,15 +18,20 @@ The physical layer defines the physical properties of the game object at any giv
 Some basic ones include inertia, angular and linear velocity, and friction;
 in the case of more complex objects such as a car, the description contains information about \textit{constraints}.
 The constraints define the relative positions of different elements of the object and their velocities.
+An example of a constraint would be the wheel axes of the car.
 It's worth noting that the position constraints don't have to be "stiff" (they are modeled as springs).
 Technically, once a game object is added to the simulation, it is represented by one (or more in the case of compound bodies) \textit{body handle}.
 Therefore, each game object has to implement the \texttt{ISimulationMember} interface which has a property that returns the list of all body handles associated with the given game object.
+More details on coupling the physics engine with the rest of the game can be found in \autoref{subsec:physics-project}
 
 The logical layer is the soul of each object.
 NPCs move in a way given by a simple algorithm;
 the player can inflict damage to NPCs by shooting projectiles, and so on.
 Game objects can react to collisions with other objects by registering for contact callbacks, i.e. implementing the \texttt{IContactEventListener} interface.
-They can also move (either on their own, like NPCs, or due to the player input) by registering input callbacks, i.e. implementing the \texttt{IInputSubscriber} interface.
+They can also move (either on their own, like NPCs, or due to the player input) by registering input callbacks, i.e. implementing the \texttt{IInputSubscriber} interface (see \autoref{subsec:context-class} and \autoref{subsec:transporter-classes}).
+The logic related to game objects of a given kind is usually contained in a respective Controller class, described in more detail in \autoref{subsec:controller-classes}.
+
+All game objects are members of a scene (see \autoref{subsec:scene-class}).
 
 In the remainder of this section, we will cover some of the most important components related to managing game objects.
 \input{chapters/implementation/sections/game_objects_management/subsections/animator_class.tex}
