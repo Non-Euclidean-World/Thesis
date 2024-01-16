@@ -1,0 +1,37 @@
+\chapter{Introduction}\label{ch:introduction}
+\markboth{}{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+\todo{for some reason in the TOC the chapter name appears twice. Is that intentional?}
+\todo{What is the thesis about? What is the content of it? What is the Author's contribution to it?}
+\todo{I used game and thesis and program and application and work interchangeably. We should define these terms and use them accordingly.}
+
+The main goal of this thesis is to create a video game that combines the concepts of procedural generation and non-Euclidean geometry.
+Procedural generation is a method used to create the world by using algorithms instead of manually designing it.
+It allows for creating virtually infinite worlds that are unique in every playthrough.
+It was first used in the 1980s in games such as \textit{Elite} \cite{Elite1984} and \textit{Rogue} \cite{Rogue1980} and has achieved a significant increase in popularity with the release of \textit{Minecraft} \cite{Minecraft} in 2011.
+Unlike procedural generation, which has a long and rich history in the video game industry, the concept of employing non-Euclidean geometries is a relatively novel idea.
+It has been used in only few games, most notably in \textit{Hyperbolica} \cite{Hyperbolica}, which was released in 2022.
+Non-Euclidean geometry differs from the usual Euclidean geometry in that it does not satisfy the parallel postulate - one of the postulates originally created by Euclid.
+This postulate states that given a line and a point not on the line, there is exactly one line through the point that does not intersect the given line.
+In non-Euclidean geometry, there can be more than one such line or there could be infinitely many such lines.
+In the first case, the geometry is called spherical and in the second case, it is called hyperbolic.
+Changing this one postulate has a profound effect on the geometry of the space, which is what makes the concept of non-Euclidean geometry so intriguing.
+A world where the parallel postulate does not hold is almost impossible to imagine, which our game aims to help with.
+It is also a very unique concept that helps the game stand out from the crowd.
+
+The game implementation of non-Euclidean space is based on an article by \citeauthor{Szirmay-Kalos2022} \cite{Szirmay-Kalos2022}, which outlines a way to adapt game engines to the rules of curved spaces.
+The game takes that core idea from this work and expands on it by adding the procedural generation of the world and adjusts the implementation of hyperbolic geometry to allow for infinite spaces.
+This document describes the implementation of the game in the following chapters:
+\begin{itemize}
+    \item \nameref{ch:functional_specification} - describes the game from the user's perspective and outlines the requirements for the game.
+    \item \nameref{ch:theoretical_foundations} - describes the theoretical foundations of the game.
+    \item \nameref{ch:implementation} - describes the implementation of the game.
+    \item \nameref{ch:testing} - describes the testing of the game.
+    \item \nameref{ch:user_manual} - describes how the player can interact with the game.
+    \item \nameref{ch:results} - describes the results of the work focusing on the performance, the gameplay and the depiction of non-Euclidean spaces.
+    \item \nameref{ch:problems} - describes the problems encountered during the implementation of the game.
+    \item \nameref{ch:improvements} - describes the possible improvements to the game.
+\end{itemize}
+
+\input{chapters/introduction/work_distribution/work_distribution.tex}
