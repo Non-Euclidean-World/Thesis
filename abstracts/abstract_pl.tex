@@ -4,19 +4,21 @@
     \begin{center}
         \tytul
     \end{center}
-
     Proceduralne generowanie świata jest techniką zdobywającą rosnącą popularność przy tworzeniu gier komputerowych.
     Zostało ono wykorzystane z powodzeniem m. in. w takich produkcjach jak \textit{Minecraft} czy \textit{No Man's Sky}.
     Z drugiej strony za przyczyną gier takich jak \textit{Hyperbolica}, szersze zainteresowanie zyskała kwestia osadzania gier komputerowych w przestrzeniach nieeuklidesowych.
     Niniejsza praca opisuje implementację gry komputerowej, która łączy oba te podejścia.
 
-    W grze zastosowano metodę przekształcania przestrzeni euklidesowej w przestrzeń hiperboliczną lub sferyczną, co pozwala na wykorzystanie istniejących algorytmów.
-    Takie podejście upraszcza implementację logiki gry w różnych geometriach, ponieważ pozwala na współdzielenie dużej części kodu pomiędzy nimi.
-    Pozwala również na zmianę stopnia zakrzywienia sceny w czasie rzeczywistym w przestrzeni hiperbolicznej, co jest najlepszym sposobem na ukazanie różnic pomiędzy geometriami.
+    W grze zastosowano, z pewnymi modyfikacjami, metodę przekształcania przestrzeni euklidesowej w przestrzeń hiperboliczną lub sferyczną, zaproponowaną przez László Szirmay-Kalosa i Milána Magdicsa w \cite{Szirmay-Kalos2022}.
+    Wspomniane podejście pozwala na wykorzystanie znanych algorytmów, zaprojektowanych z myślą o geometrii euklidesowej w innych geometriach.
+    Dodatkowo, kluczowe części logiki gry mogą być dzięki temu dzielone pomiędzy różnymi geometriami, co znacznie upraszcza implementację.
+    Zastosowana metoda pozwala również na zmianę stopnia zakrzywienia sceny w czasie rzeczywistym w przestrzeni hiperbolicznej.
 
-    Gra zawiera również wiele klasycznych mechanik gier, takich jak edycja terenu, animacje postaci, cykl dnia i nocy oraz wiele innych.
+    Proceduralne generowanie terenu w grze opiera się na algorytmie maszerujących sześcianów (ang. \textit{marching cubes algorithm}) z polem skalarnym określonym za pomocą szumu Perlina.
+
+    Gra zawiera również wiele klasycznych funkcjonalności, takich jak edycja terenu, animacje postaci, cykl dnia i nocy oraz wiele innych.
     W rezultacie gra oferuje unikalne doświadczenie eksploracji i interakcji z światami fundamentalnie różnymi od tego, w którym żyjemy. \\
 
-    \noindent \textbf{Słowa kluczowe:} Geometria Nieeuklidesowa, Geometria Hiperboliczna, Geometria Sferyczna, Generacja Proceduralna, Gry Wideo, OpenGL, C\#
+    \noindent \textbf{Słowa kluczowe:} geometria nieeuklidesowa, geometria hiperboliczna, geometria sferyczna, proceduralne generowanie terenu, gry komputerowe, OpenGL, C\#
 \end{abstract}
 }

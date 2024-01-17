@@ -1,5 +1,5 @@
 \section{Terrain improvements}
-The modifiable, procedurally generated terrain is one the hallmarks of the game.
+The modifiable, procedurally generated terrain is one of the hallmarks of the game.
 It can be modified, it is procedurally generated and it is infinite.
 Moreover, there are five different biomes which adds some variety to the game.
 But of course, there is always room for improvement.
@@ -8,7 +8,7 @@ Right now the whole world is the same biome but it would be interesting to have 
 
 Another improvement would be to add some structures to the world.
 Right now the world is just hills and valleys but it could include things like trees, rocks, buildings, roads, rivers, lakes, etc.
-In particular, lakes and rivers would be interesting as there is no water is the game as of now.
+In particular, lakes and rivers would be interesting as there is no water in the game as of now.
 Adding water and maybe even different fluids would be a great improvement.
 
 Terrain modification could also be improved.
@@ -20,10 +20,10 @@ The last upgrade concerning the terrain would be to minimize the amount of space
 Right now each chunk takes 54 KB of memory.
 This adds up to 20 MB for a new world.
 Both during standard gameplay and in testing, a considerable amount of data may be saved on disk.
-There are three simple solutions that could reduce the problem but due to the nature of the game the problem cannot be removed completely.
-The first solution is to compress the files, which would reduce the memory by around a half, however it would slow the game down as the files would have to be uncompressed either each time a chunk is loaded or all of them at the start of the game.
+Three simple solutions could reduce the problem but due to the nature of the game, the problem cannot be removed completely.
+The first solution is to compress the files, which would reduce the memory by around half, however, it would slow the game down as the files would have to be uncompressed either each time a chunk is loaded or all of them at the start of the game.
 The second solution is to only save the chunks that have been modified.
 This would reduce the size considerably but it could also make the game slower as the chunks would have to be generated every time the game is loaded.
-The last solution would be to reduce the size of the cubes in the chunks.
+The last solution would be to increase the size of cubes in the chunks.
 That could reduce the save size but it would also make the game look less smooth by making it more "blocky".
 All of these solutions are imperfect but some combination of them and making some performance sacrifices could be a viable solution.

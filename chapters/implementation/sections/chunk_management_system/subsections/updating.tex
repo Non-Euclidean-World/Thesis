@@ -22,7 +22,7 @@ The main thread then updates the GPU buffers with the new vertices of the chunk'
 Once the whole \texttt{currentBatch} is updated, the \texttt{IsProcessingBatch} flag is set back to false.
 
 The whole process is depicted in \autoref{fig:chunk-worker}.
-\begin{figure}[h] % https://drive.google.com/file/d/1TzJouYAys_fz1GkhppZsqoh9yFn62twL/view?usp=sharing
+\begin{figure}[!htb] % https://drive.google.com/file/d/1TzJouYAys_fz1GkhppZsqoh9yFn62twL/view?usp=sharing
     \centering
     \includegraphics[width=1\textwidth]{chapters/implementation/sections/chunk_management_system/resources/chunkWorker.drawio.png}
     \caption{Terrain modification in the chunk management system}
@@ -32,9 +32,9 @@ The whole process is depicted in \autoref{fig:chunk-worker}.
 The reason for processing chunks in batches rather than individually is simple.
 If we modify chunks one by one it may be the case that when the terrain is rendered, one chunk has already been modified, while its neighbor has not, resulting in a visible gap between the two.
 This problem can be seen in \autoref{fig:gaps-between-chunks-chunk-worker} which comes from an early stage of the game's development.
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.8\textwidth]{chapters/implementation/sections/chunk_management_system/resources/gaps-between-chunks.png}
+    \includegraphics[width=0.6\textwidth]{chapters/implementation/sections/chunk_management_system/resources/gaps-between-chunks.png}
     \caption{Gaps between chunks appearing during terrain modification}
     \label{fig:gaps-between-chunks-chunk-worker}
 \end{figure}

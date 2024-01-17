@@ -4,7 +4,7 @@ There are two ways we could implement placing objects in the scene:
     \item Port the object to non-Euclidean geometry and then use the translation given by \autoref{eq:translation},
     \item Translate the object using ordinary Euclidean translation and then port it to non-Euclidean geometry.
 \end{enumerate}
-We will now shortly discuss both options.
+We will now shortly discuss both options\footnote{The discussion is based on the results obtained using the Python script \url{https://github.com/Non-Euclidean-World/Thesis/blob/main/scripts/distortions_calc.py}}.
 
 \subsubsection*{Port, then translate}
 The first option is undesirable, as it may significantly change the relative positions of objects in the scene.
@@ -13,10 +13,10 @@ The rectangle with vertices $a = (-0.5, -0.7)$, $b = (0.5, -0.7)$, $c = (0.5, 0.
 As a result, we obtain points on a unit sphere:
 \begin{equation*}
     \begin{split}
-         & \mathcal{P}(a) = (-0.441, -0.617, 0.652) \\
-         & \mathcal{P}(b) = (0.441, -0.617, 0.652)  \\
-         & \mathcal{P}(c) = (0.459, 0.459, 0.760)   \\
-         & \mathcal{P}(d) = (-0.459, 0.459, 0.760)
+         & \mathcal{P}(a) = (-0.441, -0.617, 0.652), \\
+         & \mathcal{P}(b) = (0.441, -0.617, 0.652),  \\
+         & \mathcal{P}(c) = (0.459, 0.459, 0.760),   \\
+         & \mathcal{P}(d) = (-0.459, 0.459, 0.760).
     \end{split}
 \end{equation*}
 If we were to translate the first copy of the rectangle to point $t_1 = (0.5, 0.5)$ and the second copy to $t _2 = (1.5, 1.7)$ in Euclidean geometry, the two copies should meet at the point $(1, 1)$.
@@ -24,31 +24,31 @@ If we were to translate the first copy of the rectangle to point $t_1 = (0.5, 0.
 When we perform the translation to point $t_1$ (the corresponding translation target is obtained by porting $t_1$ using \autoref{eq:elliptic-porting}, i.e. the translation target is $q_1 = \mathcal{P}(t_1)$), we get the following vertices:
 \begin{equation*}
     \begin{split}
-         & \mathcal{P}(a)T_{q_1} =  (-0.014, -0.190, 0.982) \\
-         & \mathcal{P}(b)T_{q_1} = (0.761, -0.296, 0.577)   \\
-         & \mathcal{P}(c)T_{q_1} = (0.698, 0.698, 0.156)    \\
-         & \mathcal{P}(d)T_{q_1} = (-0.110, 0.809, 0.578)
+         & \mathcal{P}(a)T_{q_1} =  (-0.014, -0.190, 0.982), \\
+         & \mathcal{P}(b)T_{q_1} = (0.761, -0.296, 0.577),   \\
+         & \mathcal{P}(c)T_{q_1} = (0.698, 0.698, 0.156),    \\
+         & \mathcal{P}(d)T_{q_1} = (-0.110, 0.809, 0.578).
     \end{split}
 \end{equation*}
 The translation to $t_2$ (with $q_2 = \mathcal{P}(t_2)$) gives
 \begin{equation*}
     \begin{split}
-         & \mathcal{P}(a)T_{q_2} = (0.709, 0.686, 0.160)   \\
-         & \mathcal{P}(b)T_{q_2} = (0.957, -0.031, -0.287) \\
-         & \mathcal{P}(c)T_{q_2} = (0.141, 0.099, -0.985)  \\
-         & \mathcal{P}(d)T_{q_2} = (-0.117, 0.847, -0.519)
+         & \mathcal{P}(a)T_{q_2} = (0.709, 0.686, 0.160),   \\
+         & \mathcal{P}(b)T_{q_2} = (0.957, -0.031, -0.287), \\
+         & \mathcal{P}(c)T_{q_2} = (0.141, 0.099, -0.985),  \\
+         & \mathcal{P}(d)T_{q_2} = (-0.117, 0.847, -0.519).
     \end{split}
 \end{equation*}
 Even though we would expect the third vertex of the first copy of the rectangle to be identical to the first vertex of the second copy, there is a difference between the two.
 This effect can be seen in \autoref{fig:spherical-rectangles}.
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.6\textwidth]{chapters/theoretical_foundations/sections/non-eudlidean-spaces/resources/spherical-rectangles.png}
     \caption{Rectangles ported onto a sphere and then translated}
     \label{fig:spherical-rectangles}
 \end{figure}
 The effect is even more visible in the implementation. \autoref{fig:misaligned-wheel} shows how the wheels of the car get misaligned from their wheel arches.
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.6\textwidth]{chapters/theoretical_foundations/sections/non-eudlidean-spaces/resources/misaligned-wheel.png}
     \caption{Non-Euclidean translation causing a misalignment of objects}
@@ -77,7 +77,7 @@ for the second square.
 The side lengths of the square have been calculated as the lengths of geodesics\footnote{This is the "great-circle distance" equal to $2 \arcsin{(c / 2)}$, where $c$ is the chord length.} between the square's vertices.
 As we can see, the side lengths of the ported square are no longer equal to each other, and the distortion increases as the square is farther away from the origin.
 This effect can be seen in \autoref{fig:bending-car}.
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.6\textwidth]{chapters/theoretical_foundations/sections/non-eudlidean-spaces/resources/bending-car.png}
     \caption{Distrotions caused by porting to spherical space}

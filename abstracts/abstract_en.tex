@@ -9,14 +9,16 @@
     On the other hand, a recent game \textit{Hyperbolica} popularized a novel idea of making the virtual worlds even more interesting by setting them in non-Euclidean spaces.
     This work describes the implementation of a video game that incorporates both of the aforementioned concepts.
 
-    In the game a technique of transforming Euclidean space into a hyperbolic or spherical space was used, which allows for the use of established algorithms.
-    This approach simplifies the implementation of the game logic in different geometries as it allows sharing large parts of the implementation across the three geometries.
-    It also allows for changing the degree to which the scene is visually curved in hyperbolic geometry at runtime, which is the best way to showcase the differences between the geometries.
+    In the game, we use and expand on the technique of transforming Euclidean space into hyperbolic or spherical space introduced by László Szirmay-Kalos and Milán Magdics in \cite{Szirmay-Kalos2022}.
+    The approach allows for the use of established algorithms, developed with Euclidean geometry in mind, in other geometries.
+    Furthermore, core parts of the game logic can be shared between different geometries, which vastly simplifies the implementation.
+    The approach also allows for changing the degree to which the scene is visually curved in hyperbolic geometry at runtime.
 
-    The game also features a number of classic game mechanics, such as terrain editing, character animations, day and night cycle, and many more.
+    The procedural terrain generation in the game is based on the marching cubes algorithm with Perlin noise used for generating the underlying scalar field.
+
+    The game also includes several classic game features, such as terrain editing, character animations, day/night cycle, and many more.
     As a result, the game offers a unique experience of exploring and interacting with worlds inherently different from the one we live in. \\
 
-    \noindent \textbf{Keywords:} Non-Euclidean Geometry, Hyperbolic Geometry, Spherical Geometry, Procedural Generation, Video Games, OpenGL, C\#
-    \question{Should keywords start with capital letters?}
+    \noindent \textbf{Keywords:} non-Euclidean geometry, hyperbolic geometry, spherical geometry, procedural terrain generation, video games, OpenGL, C\#
 \end{abstract}
 }

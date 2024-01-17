@@ -1,27 +1,8 @@
 \section{Procedural world generation} \label{sec:implementation_terrain}
-\todo{Intro to this section became a mess}
 The terrain was designed to be randomly generated so that the player can have a new, unique map every time they play.
-The second important part of the design was making sure that the player could edit the terrain in any way they wanted.
-As described in \autoref{sec:theory_theory_marching_cubes} the marching cubes algorithm was chosen as the base of the terrain generation process.
-This section will describe how we used this algorithm to generate the terrain and allow the player to edit it.
-
-The algorithm consists of the following steps:
-\begin{itemize}
-    \item Define the scalar field function.
-    \item Divide the world into chunks.
-    \item Generate the mesh.
-\end{itemize}
-
-The chunk generation process is encapsulated inside the \texttt{ChunkFactory} class.
-A chunk is generated in two main steps:
-\begin{enumerate}
-    \item A scalar field of a given size is created.
-          The values of the scalar field are generated based on the values of Perlin noise.
-          This step is performed by the \texttt{ScalarFieldGenerator} class.
-    \item The marching cubes algorithm is used to create a mesh;
-          positions and normal vectors of the mesh's vertices are obtained in this step using the \texttt{MeshGenerator} class.
-\end{enumerate}
-For more information on terrain generation, refer to \autoref{sec:implementation_terrain}.
+Additionally, in the case of Euclidean and hyperbolic geometries, the terrain is infinite in the sense that it is generated on the fly as the player moves around the scene.
+Another important part of the design was making sure that the player could edit the terrain in any way they wanted.
+To fulfill these requirements, the terrain was split into smaller units, called \textit{chunks}, which are created and/or modified individually.
 
 In what follows, we will provide more details on both terrain generation and modification.
 
