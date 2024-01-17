@@ -1,19 +1,19 @@
 \section{Problems with hyperbolic space} \label{sec:hyperbolic_problems}
 As described in \autoref{subsec:practical_considerations}, in hyperbolic geometry the world moves and the camera is stationary.
-This is done to limit the distortions, since the distortions get bigger the further away from $(0,0,0)$ the object is.
-In first-person the camera is normally where head of the player is.
-However, if we were to place the camera there in hyperbolic geometry, the distortions would be very small, barely distinguishable from Euclidean geometry as can be seen in \autoref{fig:hyperbolic_invisible}.
+This is done to limit the distortions since the distortions get bigger the further away from $(0, 0, 0)$ the object is.
+
+To make the world appear curved in the hyperbolic geometry, the camera's position, as passed to the view matrix, has to be at some position other than $(0, 0, 0)$.
+If the camera is too close to the origin, the curvature of the scene would be very small, barely distinguishable from Euclidean geometry as can be seen in \autoref{fig:hyperbolic_invisible}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{chapters/problems/resources/hyperbolic-invisible.png}
-    \caption{Hyperbolic geometry with camera at player's head.}
+    \caption{Hyperbolic geometry with the camera at the player's head.}
     \label{fig:hyperbolic_invisible}
 \end{figure}
 
-To make the distortions more visible, the camera was placed high above the player.
-This solution, however, created a new problem.
-The camera was too high which made gameplay look unnatural, which can be seen in \autoref{fig:hyperbolic_high_camera}.
+To make the scene appear visibly curved, the camera position was changed to a point with a relatively high value of the $y$ coordinate.
+This solution, however, created a new problem, as the new camera's position made the gameplay look unnatural, as can be seen in \autoref{fig:hyperbolic_high_camera}.
 
 \begin{figure}[h]
     \centering
@@ -31,5 +31,5 @@ The whole logic is as follows:
     \item The frame is rendered.
 \end{enumerate}
 
-It is worth noting that moving the world only involves passing an appropriate vector to the shader.
-The locations of the objects themselves are not changed for performance reasons.
+It is worth noting that "moving the world" only involves passing an appropriate vector to the shader.
+The locations of the objects themselves are obviously not changed for performance reasons.

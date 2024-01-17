@@ -13,7 +13,7 @@ This widget renders the main menu of the game.
 The rendering logic of this widget can be seen in \autoref{fig:widget_logic}.
 The idea is as follows.
 The root widget calls the render method of its child which is the \texttt{Background} widget.
-The \texttt{Background} widget renders a background color.
+The \texttt{Background} widget renders the background color.
 Then the \texttt{Background} widget calls the render method of its child which is the \texttt{Column} widget.
 This widget renders its children in a column but to do that it first needs to know the size of each of its children.
 Based on that information it will call a render method of each child with the appropriate context.

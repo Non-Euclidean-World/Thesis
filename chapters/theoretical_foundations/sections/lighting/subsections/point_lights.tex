@@ -28,13 +28,13 @@ and
 \end{equation}
 respectively.
 
-The important difference between a point light and a directional light is the \textit{attenuation} $a$.
+The important difference between a point light and a directional light is the \textit{attenuation factor} $a$.
 Attenuation represents how the light's strength diminishes over distance.
 It can be expressed as a reciprocal of a quadratic function:
 \begin{equation}
     a = \frac{1}{K_c + K_l d + K_q d^2},
 \end{equation}
-where $d$ is the distance of the fragment from the source that can be calculated using one of the formulas \ref{eq:dist-euclidean}, \ref{eq:dist-spherical}, or \ref{eq:dist-hyperbolic} depending on the geometry.
+where $d$ is the distance of the fragment from the source that can be calculated using one of the formulas \ref{eq:dist-euclidean}, \ref{eq:dist-spherical}, or \ref{eq:dist-hyperbolic} depending on the geometry and $K_c$, $K_l$, and $K_q$ are constants specific to the light source's strength.
 Multiplying the light by the attenuation factor gives the desired effect of a realistic point light source such as a lamp, see \autoref{fig:point-lights}.
 \begin{figure}[h]
     \centering

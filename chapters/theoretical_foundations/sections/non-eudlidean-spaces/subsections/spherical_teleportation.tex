@@ -34,9 +34,9 @@ This means that if the translation target $q$ is close to $(0, 0, 0, -1)$, $T(q)
 The matrix isn't even defined for translation targets with $q_w = -1$.
 
 To solve this problem, we derived a translation matrix $T_2(q)$ which we use for translations in the second region.
-It is defined analogously to $T(q)$ given by \autoref{eq:translation-matrix}, but in the context of $T_2$, the translation target $q$ is the point that the point $(0, 0, 0, -1)$ is translated to.
+It is defined analogously to $T(q)$ given by \autoref{eq:translation-matrix}, but in the context of $T_2$, the translation target $q$ is redefined as the point that the point $(0, 0, 0, -1)$ is translated to.
 The matrix is given by
-\begin{equation}
+\begin{equation} \label{eq:translation-matrix-2}
     T_2(q) = \begin{bmatrix}
         1 - \frac{q_x^2}{1 - q_w} & -\frac{q_x q_y}{1 - q_w}  & -\frac{q_x q_z}{1 - q_w}  & q_x  \\
         -\frac{q_y q_x}{1 - q_w}  & 1 - \frac{q_y^2}{1 - q_w} & -\frac{q_y q_z}{1 - q_w}  & q_y  \\

@@ -28,7 +28,7 @@ The logical layer is the soul of each object.
 NPCs move in a way given by a simple algorithm;
 the player can inflict damage to NPCs by shooting projectiles, and so on.
 Game objects can react to collisions with other objects by registering for contact callbacks, i.e. implementing the \texttt{IContactEventListener} interface.
-They can also move (either on their own, like NPCs, or due to the player input) by registering input callbacks, i.e. implementing the \texttt{IInputSubscriber} interface (see \autoref{subsec:context-class} and \autoref{subsec:transporter-classes}).
+They can also move (either on their own, like NPCs, or due to the player's input) by registering input callbacks, i.e. implementing the \texttt{IInputSubscriber} interface (see \autoref{subsec:context-class} and \autoref{subsec:transporter-classes}).
 The logic related to game objects of a given kind is usually contained in a respective Controller class, described in more detail in \autoref{subsec:controller-classes}.
 
 All game objects are members of a scene (see \autoref{subsec:scene-class}).
