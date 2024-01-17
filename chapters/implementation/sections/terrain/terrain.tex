@@ -1,8 +1,7 @@
 \section{Procedural world generation} \label{sec:implementation_terrain}
-\todo{Intro to this section became a mess}
 The terrain was designed to be randomly generated so that the player can have a new, unique map every time they play.
 Additionally, in the case of Euclidean and hyperbolic geometries, the terrain is infinite in the sense that it is generated on the fly as the player moves around the scene.
-The second important part of the design was making sure that the player could edit the terrain in any way they wanted.
+Another important part of the design was making sure that the player could edit the terrain in any way they wanted.
 To fulfill these requirements, the terrain was split into smaller units, called \textit{chunks}, which are created and/or modified individually.
 
 In what follows, we will provide more details on both terrain generation and modification.
