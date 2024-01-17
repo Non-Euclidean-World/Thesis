@@ -24,9 +24,6 @@ The inventory is a collection of images that represent the items the player has.
 It is drawn at the bottom of the screen.
 It uses both the item's texture containing the HUD items and the texture containing the alphabet.
 The images of the items are drawn first and then the text is drawn on top of them.
-%It is done in this order to optimize the performance by minimizing the number of times a texture is set to 2.
-This way the texture is set only two times, which improves the performance.
-\todo{Can we remove the previous sentence?}
 
 All the elements of the HUD have their positions and sizes.
 Each element is either placed in some position on the screen or is placed relative to some other element.
