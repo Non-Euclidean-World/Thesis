@@ -5,7 +5,7 @@ This is done to limit the distortions since the distortions get bigger the furth
 To make the world appear curved in the hyperbolic geometry, the camera's position, as passed to the view matrix, has to be at some position other than $(0, 0, 0)$.
 If the camera is too close to the origin, the curvature of the scene would be very small, barely distinguishable from Euclidean geometry as can be seen in \autoref{fig:hyperbolic_invisible}.
 
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.8\textwidth]{chapters/problems/resources/hyperbolic-invisible.png}
     \caption{Hyperbolic geometry with the camera at the player's head.}
@@ -15,7 +15,7 @@ If the camera is too close to the origin, the curvature of the scene would be ve
 To make the scene appear visibly curved, the camera position was changed to a point with a relatively high value of the $y$ coordinate.
 This solution, however, created a new problem, as the new camera's position made the gameplay look unnatural, as can be seen in \autoref{fig:hyperbolic_high_camera}.
 
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.8\textwidth]{chapters/problems/resources/hyperbolic-high-camera.png}
     \caption{Hyperbolic camera placed high above the player.}

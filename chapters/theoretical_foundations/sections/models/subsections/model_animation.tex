@@ -12,11 +12,11 @@ These bones are not used to deform the mesh but to interact with other bones.
 Among other things, these guarantee that the knee does not bend in the wrong direction.
 
 
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
     \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=0.8\textwidth]{chapters/theoretical_foundations/sections/models/resources/Armature.png}
+        \includegraphics[height=0.8\textwidth]{chapters/theoretical_foundations/sections/models/resources/Armature.png}
         \caption{Armature.}
         \label{fig:armature}
     \end{subfigure}
@@ -37,9 +37,9 @@ When bones move the vertices move with them according to how much they move and 
 Assigning weights to vertices in Blender is shown in \autoref{fig:vertex_weights}.
 As can be seen in the figure, it is done by selecting a bone and then painting the vertices with a certain weight.
 
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.45\textwidth]{chapters/theoretical_foundations/sections/models/resources/WeightPaint.png}
+    \includegraphics[height=0.45\textwidth]{chapters/theoretical_foundations/sections/models/resources/WeightPaint.png}
     \caption{Vertex weights.}
     \label{fig:vertex_weights}
 \end{figure}
@@ -50,7 +50,7 @@ A keyframe is a set of transformations for each bone at a certain time.
 Once the keyframes are defined the animation is interpolated between them to produce a smooth animation.
 In the game, there are two animations: walking and running, both of which are looped to create a continuous animation when the player or an NPC moves.
 
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=1\textwidth]{chapters/theoretical_foundations/sections/models/resources/DopeSheet.png}
     \caption{Keyframes.}
