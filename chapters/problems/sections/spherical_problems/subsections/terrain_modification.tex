@@ -6,7 +6,7 @@ Our attempted solution was to calculate the center of secondary modification as
 $$\frac{c - c_1}{\lVert c - c_1 \rVert}(R + (R - \lVert c - c_1 \rVert)) + c_2 = \frac{c - c_1}{\lVert c - c_1 \rVert}(2R - \lVert c - c_1 \rVert) + c_2,$$
 where $c$ is the user-selected center of modification, $c_1$ and $c_2$ are centers of the first and second region, and $R$ is the radius of the region.
 
-This intuition, however, turns out to be flawed, because the two modifications seem mismatched, as can be seen in \autoref{fig:gaps-bt-regions-spherical}.
+This, however, doesn't solve the problem, as the two modifications are mismatched, as can be seen in \autoref{fig:gaps-bt-regions-spherical}.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.6\textwidth]{chapters/problems/resources/gaps-bt-regions-mining.png}
